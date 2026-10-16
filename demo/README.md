@@ -33,3 +33,8 @@ Place the following files in this folder before submission:
 ## Trivy notes (M6 write-up)
 
 Trivy scanned the ClinicFlow backend and frontend container images in GitHub Actions for HIGH and CRITICAL vulnerabilities (`--ignore-unfixed --exit-code 1`). A clean result means no unfixed high/critical CVEs were found in the image layers at scan time. If findings appear, document one CVE ID, its package, and how you remediated or accepted the risk (for example by upgrading the base image).
+
+## Trivy finding fixed in CI
+
+First CI run failed Trivy on HIGH CVEs in `starlette 0.41.3` (CVE-2025-62727, CVE-2026-48818, CVE-2026-54283).  
+Remediation: upgraded FastAPI to `0.143.2` (pulls Starlette >= 1.3.1). Re-run pipeline should be clean or document remaining findings.

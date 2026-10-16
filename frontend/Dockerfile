@@ -5,8 +5,10 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Unprivileged Nginx listens on 8080 and runs as non-root by default.
-FROM nginxinc/nginx-unprivileged:1.27-alpine
+# Unprivileged Nginx (non-root). Upgrade OS packages to clear fixed CVEs for Trivy.
+FROM nginxinc/nginx-unprivileged:1.29-alpine
+USER root
+RUN apk upgrade --no-cache
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 USER 101

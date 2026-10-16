@@ -1,0 +1,2 @@
+NAME         CLASS   HOSTS              ADDRESS                                                                          PORTS   AGE
+clinicflow   nginx   clinicflow.local   ae2751e5055ee4e6da36d90400018941-4c9867d2850a7ede.elb.ap-south-1.amazonaws.com   80      8m13s

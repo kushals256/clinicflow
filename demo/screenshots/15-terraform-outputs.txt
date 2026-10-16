@@ -1,0 +1,3 @@
+cluster_endpoint = "https://92FDA63028C6D2E9EFB34DBE925DEA32.gr7.ap-south-1.eks.amazonaws.com"
+cluster_name = "clinicflow-eks"
+vpc_id = "vpc-093618e20e01a4b0b"

@@ -1,0 +1,306 @@
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_partition.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_partition.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_caller_identity.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].data.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].data.aws_partition.current: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_caller_identity.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2830595799][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks.module.kms.data.aws_partition.current[0]: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296][0m
+[0m[1mmodule.eks.data.aws_partition.current[0]: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks.aws_iam_role.this[0]: Refreshing state... [id=clinicflow-eks-cluster-20261016093021652400000001][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role.this[0]: Refreshing state... [id=main-eks-node-group-20261016093021652400000002][0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.custom[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.custom[0]: Read complete after 0s [id=513122117][0m
+[0m[1mmodule.eks.aws_iam_policy.custom[0]: Refreshing state... [id=arn:aws:iam::114019966110:policy/clinicflow-eks-cluster-20261016093021652500000003][0m
+[0m[1mmodule.eks.data.aws_caller_identity.current[0]: Read complete after 0s [id=114019966110][0m
+[0m[1mmodule.eks.data.aws_iam_session_context.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_iam_session_context.current[0]: Read complete after 0s [id=arn:aws:iam::114019966110:root][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].data.aws_caller_identity.current: Read complete after 0s [id=114019966110][0m
+[0m[1mmodule.eks.module.kms.data.aws_caller_identity.current[0]: Read complete after 0s [id=114019966110][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Refreshing state... [id=clinicflow-eks-cluster-20261016093021652400000001-20261016093028016600000005][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.custom[0]: Refreshing state... [id=clinicflow-eks-cluster-20261016093021652400000001-20261016093028058000000006][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSVPCResourceController"]: Refreshing state... [id=clinicflow-eks-cluster-20261016093021652400000001-20261016093027979600000004][0m
+[0m[1mmodule.eks.module.kms.data.aws_iam_policy_document.this[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=main-eks-node-group-20261016093021652400000002-20261016093028333900000008][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=main-eks-node-group-20261016093021652400000002-20261016093028395000000009][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Refreshing state... [id=main-eks-node-group-20261016093021652400000002-20261016093028293300000007][0m
+[0m[1mmodule.eks.module.kms.data.aws_iam_policy_document.this[0]: Read complete after 0s [id=554600859][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.eks.aws_iam_policy.custom[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_policy" "custom" {
+      [31m-[0m[0m arn              = "arn:aws:iam::114019966110:policy/clinicflow-eks-cluster-20261016093021652500000003" [90m-> null[0m[0m
+      [31m-[0m[0m attachment_count = 1 [90m-> null[0m[0m
+      [31m-[0m[0m id               = "arn:aws:iam::114019966110:policy/clinicflow-eks-cluster-20261016093021652500000003" [90m-> null[0m[0m
+      [31m-[0m[0m name             = "clinicflow-eks-cluster-20261016093021652500000003" [90m-> null[0m[0m
+      [31m-[0m[0m name_prefix      = "clinicflow-eks-cluster-" [90m-> null[0m[0m
+      [31m-[0m[0m path             = "/" [90m-> null[0m[0m
+      [31m-[0m[0m policy           = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = [
+                          [31m-[0m[0m "ec2:RunInstances",
+                          [31m-[0m[0m "ec2:CreateLaunchTemplate",
+                          [31m-[0m[0m "ec2:CreateFleet",
+                        ]
+                      [31m-[0m[0m Condition = {
+                          [31m-[0m[0m StringEquals = {
+                              [31m-[0m[0m "aws:RequestTag/eks:eks-cluster-name" = "${aws:PrincipalTag/eks:eks-cluster-name}"
+                            }
+                          [31m-[0m[0m StringLike   = {
+                              [31m-[0m[0m "aws:RequestTag/eks:kubernetes-node-class-name" = "*"
+                              [31m-[0m[0m "aws:RequestTag/eks:kubernetes-node-pool-name"  = "*"
+                            }
+                        }
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Resource  = "*"
+                      [31m-[0m[0m Sid       = "Compute"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = [
+                          [31m-[0m[0m "ec2:CreateVolume",
+                          [31m-[0m[0m "ec2:CreateSnapshot",
+                        ]
+                      [31m-[0m[0m Condition = {
+                          [31m-[0m[0m StringEquals = {
+                              [31m-[0m[0m "aws:RequestTag/eks:eks-cluster-name" = "${aws:PrincipalTag/eks:eks-cluster-name}"
+                            }
+                        }
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Resource  = [
+                          [31m-[0m[0m "arn:aws:ec2:*:*:volume/*",
+                          [31m-[0m[0m "arn:aws:ec2:*:*:snapshot/*",
+                        ]
+                      [31m-[0m[0m Sid       = "Storage"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "ec2:CreateNetworkInterface"
+                      [31m-[0m[0m Condition = {
+                          [31m-[0m[0m StringEquals = {
+                              [31m-[0m[0m "aws:RequestTag/eks:eks-cluster-name"         = "${aws:PrincipalTag/eks:eks-cluster-name}"
+                              [31m-[0m[0m "aws:RequestTag/eks:kubernetes-cni-node-name" = "*"
+                            }
+                        }
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Resource  = "*"
+                      [31m-[0m[0m Sid       = "Networking"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = [
+                          [31m-[0m[0m "elasticloadbalancing:CreateTargetGroup",
+                          [31m-[0m[0m "elasticloadbalancing:CreateRule",
+                          [31m-[0m[0m "elasticloadbalancing:CreateLoadBalancer",
+                          [31m-[0m[0m "elasticloadbalancing:CreateListener",
+                          [31m-[0m[0m "ec2:CreateSecurityGroup",
+                        ]
+                      [31m-[0m[0m Condition = {
+                          [31m-[0m[0m StringEquals = {
+                              [31m-[0m[0m "aws:RequestTag/eks:eks-cluster-name" = "${aws:PrincipalTag/eks:eks-cluster-name}"
+                            }
+                        }
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Resource  = "*"
+                      [31m-[0m[0m Sid       = "LoadBalancer"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "shield:CreateProtection"
+                      [31m-[0m[0m Condition = {
+                          [31m-[0m[0m StringEquals = {
+                              [31m-[0m[0m "aws:RequestTag/eks:eks-cluster-name" = "${aws:PrincipalTag/eks:eks-cluster-name}"
+                            }
+                        }
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Resource  = "*"
+                      [31m-[0m[0m Sid       = "ShieldProtection"
+                    },
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "shield:TagResource"
+                      [31m-[0m[0m Condition = {
+                          [31m-[0m[0m StringEquals = {
+                              [31m-[0m[0m "aws:RequestTag/eks:eks-cluster-name" = "${aws:PrincipalTag/eks:eks-cluster-name}"
+                            }
+                        }
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Resource  = "arn:aws:shield::*:protection/*"
+                      [31m-[0m[0m Sid       = "ShieldTagResource"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m policy_id        = "ANPARVDA6TSPGXG2SS2HI" [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Project"     = "clinicflow"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Project"     = "clinicflow"
+        } [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.eks.aws_iam_role.this[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role" "this" {
+      [31m-[0m[0m arn                   = "arn:aws:iam::114019966110:role/clinicflow-eks-cluster-20261016093021652400000001" [90m-> null[0m[0m
+      [31m-[0m[0m assume_role_policy    = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = [
+                          [31m-[0m[0m "sts:TagSession",
+                          [31m-[0m[0m "sts:AssumeRole",
+                        ]
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Principal = {
+                          [31m-[0m[0m Service = "eks.amazonaws.com"
+                        }
+                      [31m-[0m[0m Sid       = "EKSClusterAssumeRole"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m create_date           = "2026-10-16T09:30:26Z" [90m-> null[0m[0m
+      [31m-[0m[0m force_detach_policies = true [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "clinicflow-eks-cluster-20261016093021652400000001" [90m-> null[0m[0m
+      [31m-[0m[0m managed_policy_arns   = [
+          [31m-[0m[0m "arn:aws:iam::114019966110:policy/clinicflow-eks-cluster-20261016093021652500000003",
+          [31m-[0m[0m "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+          [31m-[0m[0m "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m max_session_duration  = 3600 [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "clinicflow-eks-cluster-20261016093021652400000001" [90m-> null[0m[0m
+      [31m-[0m[0m name_prefix           = "clinicflow-eks-cluster-" [90m-> null[0m[0m
+      [31m-[0m[0m path                  = "/" [90m-> null[0m[0m
+      [31m-[0m[0m tags                  = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Project"     = "clinicflow"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all              = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Project"     = "clinicflow"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m unique_id             = "AROARVDA6TSPKNYZJR7MS" [90m-> null[0m[0m
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.eks.aws_iam_role_policy_attachment.custom[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy_attachment" "custom" {
+      [31m-[0m[0m id         = "clinicflow-eks-cluster-20261016093021652400000001-20261016093028058000000006" [90m-> null[0m[0m
+      [31m-[0m[0m policy_arn = "arn:aws:iam::114019966110:policy/clinicflow-eks-cluster-20261016093021652500000003" [90m-> null[0m[0m
+      [31m-[0m[0m role       = "clinicflow-eks-cluster-20261016093021652400000001" [90m-> null[0m[0m
+    }
+
+[1m  # module.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [31m-[0m[0m id         = "clinicflow-eks-cluster-20261016093021652400000001-20261016093028016600000005" [90m-> null[0m[0m
+      [31m-[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy" [90m-> null[0m[0m
+      [31m-[0m[0m role       = "clinicflow-eks-cluster-20261016093021652400000001" [90m-> null[0m[0m
+    }
+
+[1m  # module.eks.aws_iam_role_policy_attachment.this["AmazonEKSVPCResourceController"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [31m-[0m[0m id         = "clinicflow-eks-cluster-20261016093021652400000001-20261016093027979600000004" [90m-> null[0m[0m
+      [31m-[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController" [90m-> null[0m[0m
+      [31m-[0m[0m role       = "clinicflow-eks-cluster-20261016093021652400000001" [90m-> null[0m[0m
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["main"].aws_iam_role.this[0][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role" "this" {
+      [31m-[0m[0m arn                   = "arn:aws:iam::114019966110:role/main-eks-node-group-20261016093021652400000002" [90m-> null[0m[0m
+      [31m-[0m[0m assume_role_policy    = jsonencode(
+            {
+              [31m-[0m[0m Statement = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m Action    = "sts:AssumeRole"
+                      [31m-[0m[0m Effect    = "Allow"
+                      [31m-[0m[0m Principal = {
+                          [31m-[0m[0m Service = "ec2.amazonaws.com"
+                        }
+                      [31m-[0m[0m Sid       = "EKSNodeAssumeRole"
+                    },
+                ]
+              [31m-[0m[0m Version   = "2012-10-17"
+            }
+        ) [90m-> null[0m[0m
+      [31m-[0m[0m create_date           = "2026-10-16T09:30:26Z" [90m-> null[0m[0m
+      [31m-[0m[0m description           = "EKS managed node group IAM role" [90m-> null[0m[0m
+      [31m-[0m[0m force_detach_policies = true [90m-> null[0m[0m
+      [31m-[0m[0m id                    = "main-eks-node-group-20261016093021652400000002" [90m-> null[0m[0m
+      [31m-[0m[0m managed_policy_arns   = [
+          [31m-[0m[0m "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+          [31m-[0m[0m "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+          [31m-[0m[0m "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m max_session_duration  = 3600 [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "main-eks-node-group-20261016093021652400000002" [90m-> null[0m[0m
+      [31m-[0m[0m name_prefix           = "main-eks-node-group-" [90m-> null[0m[0m
+      [31m-[0m[0m path                  = "/" [90m-> null[0m[0m
+      [31m-[0m[0m tags                  = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Project"     = "clinicflow"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all              = {
+          [31m-[0m[0m "Environment" = "dev"
+          [31m-[0m[0m "Project"     = "clinicflow"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m unique_id             = "AROARVDA6TSPFLJNLFW7S" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [31m-[0m[0m id         = "main-eks-node-group-20261016093021652400000002-20261016093028333900000008" [90m-> null[0m[0m
+      [31m-[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly" [90m-> null[0m[0m
+      [31m-[0m[0m role       = "main-eks-node-group-20261016093021652400000002" [90m-> null[0m[0m
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [31m-[0m[0m id         = "main-eks-node-group-20261016093021652400000002-20261016093028395000000009" [90m-> null[0m[0m
+      [31m-[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy" [90m-> null[0m[0m
+      [31m-[0m[0m role       = "main-eks-node-group-20261016093021652400000002" [90m-> null[0m[0m
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"][0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [31m-[0m[0m id         = "main-eks-node-group-20261016093021652400000002-20261016093028293300000007" [90m-> null[0m[0m
+      [31m-[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy" [90m-> null[0m[0m
+      [31m-[0m[0m role       = "main-eks-node-group-20261016093021652400000002" [90m-> null[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 9 to destroy.
+
+Changes to Outputs:
+  [31m-[0m[0m cluster_name = "clinicflow-eks" [90m-> null[0m[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.custom[0]: Destroying... [id=clinicflow-eks-cluster-20261016093021652400000001-20261016093028058000000006][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Destroying... [id=main-eks-node-group-20261016093021652400000002-20261016093028395000000009][0m[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Destroying... [id=clinicflow-eks-cluster-20261016093021652400000001-20261016093028016600000005][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Destroying... [id=main-eks-node-group-20261016093021652400000002-20261016093028293300000007][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Destroying... [id=main-eks-node-group-20261016093021652400000002-20261016093028333900000008][0m[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSVPCResourceController"]: Destroying... [id=clinicflow-eks-cluster-20261016093021652400000001-20261016093027979600000004][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role.this[0]: Destroying... [id=main-eks-node-group-20261016093021652400000002][0m[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.custom[0]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSVPCResourceController"]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.aws_iam_policy.custom[0]: Destroying... [id=arn:aws:iam::114019966110:policy/clinicflow-eks-cluster-20261016093021652500000003][0m[0m
+[0m[1mmodule.eks.aws_iam_role.this[0]: Destroying... [id=clinicflow-eks-cluster-20261016093021652400000001][0m[0m
+[0m[1mmodule.eks.aws_iam_policy.custom[0]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["main"].aws_iam_role.this[0]: Destruction complete after 1s[0m
+[0m[1mmodule.eks.aws_iam_role.this[0]: Destruction complete after 1s[0m
+[0m[1m[32m
+Destroy complete! Resources: 9 destroyed.[0m

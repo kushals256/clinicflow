@@ -1,0 +1,5 @@
+NAME                 	NAMESPACE    	REVISION	UPDATED                             	STATUS  	CHART                       	APP VERSION
+clinicflow           	clinicflow   	1       	2026-10-16 16:31:31.923505 +0530 IST	deployed	clinicflow-1.0.0            	1.0.0      
+ingress-nginx        	ingress-nginx	1       	2026-10-16 16:16:29.311973 +0530 IST	deployed	ingress-nginx-4.15.1        	1.15.1     
+kube-prometheus-stack	monitoring   	1       	2026-10-16 16:21:15.283276 +0530 IST	deployed	kube-prometheus-stack-92.9.0	v0.94.1    
+metrics-server       	kube-system  	1       	2026-10-16 16:19:06.27215 +0530 IST 	deployed	metrics-server-3.14.0       	0.9.0      

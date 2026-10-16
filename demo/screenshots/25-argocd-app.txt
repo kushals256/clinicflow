@@ -1,0 +1,2 @@
+NAME         SYNC STATUS   HEALTH STATUS   REVISION                                   PROJECT
+clinicflow   Synced        Progressing     59fb9b5dd263941d20c6549ea1a79d4140bb3e79   default

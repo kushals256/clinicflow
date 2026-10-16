@@ -1,35 +1,40 @@
-# Submission screenshots (local evidence)
+# Submission screenshots (ClinicFlow / kushals256)
 
-Captured for username **kushals256** / ClinicFlow.
+## Captured
 
-| File | Covers |
-|------|--------|
-| `01-pytest-v.png` | M2 — pytest -v all passed |
-| `02-docker-compose-ps.png` | M4 — three services running |
-| `03-nonroot-users.png` | M4 — non-root container users |
-| `04-metrics-endpoint.png` | M9 — `/metrics` sample |
-| `05-health-endpoint.png` | M1 — `/health` |
-| `06-clinicflow-ui-desktop.png` | M1/M4 — app at localhost:3000 |
-| `06-clinicflow-ui-localhost-3000.png` | M1 — alternate UI capture |
-| `07-swagger-docs.png` | M1 — REST API surface |
-| `08-metrics-browser.png` | M9 — metrics in browser |
+| File | Module | Evidence |
+|------|--------|----------|
+| `01-pytest-v.png` | M2 | pytest -v |
+| `02-docker-compose-ps.png` | M4 | compose services |
+| `03-nonroot-users.png` | M4 | non-root containers |
+| `04-metrics-endpoint.png` / `08-metrics-browser.png` | M9 | `/metrics` |
+| `05-health-endpoint.png` | M1 | `/health` |
+| `06-clinicflow-ui-*.png` | M1/M4 | localhost:3000 UI |
+| `07-swagger-docs.png` | M1 | OpenAPI |
+| `09-github-commits.png` | M3 | ≥10 commits |
+| `10-actions-run-browser.png` | M5 | green Actions run |
+| `11-ghcr-sha-tags.png` | M5 | GHCR SHA tags |
+| `12-trivy-scan.png` | M6 | Trivy CI log |
+| `13-terraform-plan.png` | M7 | `terraform plan` |
+| `14-terraform-apply.png` | M7 | Apply complete |
+| `16-eks-console.png` / `16-vpc-console.png` | M7 | EKS ACTIVE + VPC |
+| `17-kubectl-nodes.png` | M8 | Ready nodes |
+| `18-kubectl-clinicflow.png` | M8 | pods/svc/ingress/hpa |
+| `19-helm-list.png` | M8 | helm releases |
+| `20-monitoring-pods.png` | M9 | Prometheus/Grafana pods |
+| `21-ingress.png` | M8 | Ingress + NLB hostname |
 
-## Still need YOU to capture (cannot do without your cloud accounts)
+## Still capturing this session
 
-| Evidence | How |
-|----------|-----|
-| GitHub Actions green run | Push to your public repo `main` |
-| GHCR packages with SHA tags | After CI push |
-| Trivy scan log | From Actions job |
-| `terraform plan` / AWS VPC+EKS / `destroy` | Run Terraform with your AWS account |
-| `kubectl get pods/svc`, `helm list`, Ingress browser | After EKS + Helm |
-| Prometheus Targets UP | After monitoring install |
-| Grafana live panel | After monitoring install |
-| Argo CD Synced | After Argo CD install |
-| Commit history (≥10 commits) | After you push history |
+| File | Module | Notes |
+|------|--------|-------|
+| `18-kubectl-clinicflow.png` (refresh) | M8 | all pods Running |
+| `22-metrics-endpoint.png` | M9 | in-cluster `/metrics` |
+| `23-prometheus-targets.png` | M9 | app target UP |
+| `24-grafana-dashboard.png` | M9 | live panel |
+| `25-argocd-synced.png` | video/M10 | Argo CD Synced |
+| `14b-terraform-destroy.png` | M7 | destroy after demo |
 
-| `09-github-commits.png` | M3 — ≥10 meaningful commits |
-| `10-actions-green.png` / `10-actions-run-browser.png` | M5 — green Actions |
-| `11-ghcr-sha-tags.png` | M5 — GHCR SHA tags |
+## Cost control
 
-Green run: https://github.com/kushals256/clinicflow/actions/runs/38879222308
+See [`COST-CONTROL.md`](COST-CONTROL.md). Destroy EKS the same day after evidence.

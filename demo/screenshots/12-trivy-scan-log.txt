@@ -1,0 +1,35 @@
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:05.2889862Z ##[group]Run docker build -t ghcr.io/kushals256/clinicflow-backend:3a83995b60bf63ae9f800b653f635e235fa5b483 ./backend
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:05.2894247Z ^[[36;1mdocker build -t ghcr.io/kushals256/clinicflow-backend:3a83995b60bf63ae9f800b653f635e235fa5b483 ./backend^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:22.0325667Z #13 naming to ghcr.io/kushals256/clinicflow-backend:3a83995b60bf63ae9f800b653f635e235fa5b483 done
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:22.0419946Z ##[group]Run docker build -t ghcr.io/kushals256/clinicflow-frontend:3a83995b60bf63ae9f800b653f635e235fa5b483 ./frontend
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:22.0420814Z ^[[36;1mdocker build -t ghcr.io/kushals256/clinicflow-frontend:3a83995b60bf63ae9f800b653f635e235fa5b483 ./frontend^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:31.3935577Z #12 6.720 found 0 vulnerabilities
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:33.0268936Z #18 naming to ghcr.io/kushals256/clinicflow-frontend:3a83995b60bf63ae9f800b653f635e235fa5b483 done
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:44.6798094Z ##[group]Run trivy image --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 \
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:44.6798707Z ^[[36;1mtrivy image --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 \^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:44.6799272Z ^[[36;1m  ghcr.io/kushals256/clinicflow-backend:3a83995b60bf63ae9f800b653f635e235fa5b483^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:44.7551394Z 2026-10-16T09:16:44Z	INFO	[vulndb] Downloading vulnerability DB...
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:49.6993272Z 2026-10-16T09:16:49Z	INFO	[vuln] Vulnerability scanning is enabled
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:49.6993692Z 2026-10-16T09:16:49Z	INFO	[secret] Secret scanning is enabled
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:49.6994692Z 2026-10-16T09:16:49Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.5988868Z 2026-10-16T09:16:54Z	INFO	Detected OS	family="debian" version="13.7"
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.5989827Z 2026-10-16T09:16:54Z	INFO	[debian] Detecting vulnerabilities...	os_version="13" pkg_num=87
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.6073233Z 2026-10-16T09:16:54Z	INFO	[python-pkg] Detecting vulnerabilities...
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.6090911Z 2026-10-16T09:16:54Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.6377560Z │                                      Target                                      │    Type    │ Vulnerabilities │ Secrets │
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.6380652Z │ ghcr.io/kushals256/clinicflow-backend:3a83995b60bf63ae9f800b653f635e235fa5b483   │   debian   │        0        │    -    │
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.6489971Z ##[group]Run trivy image --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 \
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.6490578Z ^[[36;1mtrivy image --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 \^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.6491149Z ^[[36;1m  ghcr.io/kushals256/clinicflow-frontend:3a83995b60bf63ae9f800b653f635e235fa5b483^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.7220986Z 2026-10-16T09:16:54Z	INFO	[vuln] Vulnerability scanning is enabled
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.7221670Z 2026-10-16T09:16:54Z	INFO	[secret] Secret scanning is enabled
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:54.7222422Z 2026-10-16T09:16:54Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3139177Z 2026-10-16T09:16:55Z	INFO	Detected OS	family="alpine" version="3.23.4"
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3140310Z 2026-10-16T09:16:55Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.23" repository="3.23" pkg_num=70
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3327632Z │                                     Target                                      │  Type  │ Vulnerabilities │ Secrets │
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3329553Z │ ghcr.io/kushals256/clinicflow-frontend:3a83995b60bf63ae9f800b653f635e235fa5b483 │ alpine │        0        │    -    │
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3392825Z ##[group]Run docker push ghcr.io/kushals256/clinicflow-backend:3a83995b60bf63ae9f800b653f635e235fa5b483
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3393573Z ^[[36;1mdocker push ghcr.io/kushals256/clinicflow-backend:3a83995b60bf63ae9f800b653f635e235fa5b483^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3394698Z ^[[36;1mdocker push ghcr.io/kushals256/clinicflow-frontend:3a83995b60bf63ae9f800b653f635e235fa5b483^[[0m
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:16:55.3779672Z The push refers to repository [ghcr.io/kushals256/clinicflow-backend]
+Build, Trivy Scan, Push to GHCR	UNKNOWN STEP	2026-10-16T09:17:03.7530053Z The push refers to repository [ghcr.io/kushals256/clinicflow-frontend]

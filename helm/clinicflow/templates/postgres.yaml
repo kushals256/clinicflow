@@ -60,16 +60,7 @@ spec:
             - name: data
               mountPath: /var/lib/postgresql/data
       volumes:
+        # emptyDir for classroom demo (avoids requiring EBS CSI on fresh EKS).
+        # Production should use a StorageClass-backed PVC or Amazon RDS.
         - name: data
-          persistentVolumeClaim:
-            claimName: clinicflow-postgres-data
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: clinicflow-postgres-data
-spec:
-  accessModes: [ReadWriteOnce]
-  resources:
-    requests:
-      storage: 5Gi
+          emptyDir: {}

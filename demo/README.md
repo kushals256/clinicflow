@@ -1,11 +1,11 @@
 # Demo artifacts (MANDATORY for M10)
 
-Local grading screenshots are already in [`screenshots/`](screenshots/) (see `screenshots/INDEX.md`).
+Grading evidence screenshots (M1–M9 + destroy) are in [`screenshots/`](screenshots/) — see [`screenshots/INDEX.md`](screenshots/INDEX.md) and [`screenshots/COST-CONTROL.md`](screenshots/COST-CONTROL.md).
 
 Place the following files in this folder before submission:
 
-1. **Presentation video** (MP4 preferred) — e.g. `demo/presentation.mp4`
-2. **Slide deck** — e.g. `demo/slides.pdf` or `demo/presentation.pptx`
+1. **Presentation video** (MP4 preferred) — e.g. `demo/presentation.mp4` — still required
+2. **Slide deck** — e.g. `demo/slides.pdf` (committed) or `demo/presentation.pptx`
 
 ## Video checklist (required order)
 

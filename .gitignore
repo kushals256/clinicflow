@@ -1,17 +1,17 @@
+# OS / editors
+.DS_Store
+Thumbs.db
 .idea/
 .vscode/
+*.swp
+*~
+
+# Dependencies / builds
 node_modules/
 dist/
+build/
 target/
-*.log
-.env
-.venv/
-venv/
-.terraform/
-*.tfstate
-*.tfstate.*
-*.tfvars
-!**/terraform.tfvars.example
+frontend/dist/
 
 # Python
 __pycache__/
@@ -21,4 +21,46 @@ __pycache__/
 .pytest_cache/
 .coverage
 htmlcov/
-.DS_Store
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+backend/.venv/
+
+# Secrets & local env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+aws-credentials*
+
+# Terraform / AWS local artifacts
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!**/terraform.tfvars.example
+tfplan
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Logs / temp
+*.log
+tmp/
+temp/
+*.tmp
+
+# Kubernetes local kubeconfig copies (never commit)
+kubeconfig*
+*.kubeconfig
+
+# Large media (upload video via Git LFS or GitHub Release if >100MB)
+# Uncomment if you store huge local renders outside demo/:
+# *.mov

@@ -4,8 +4,8 @@ Grading evidence screenshots (M1–M9 + destroy) are in [`screenshots/`](screens
 
 Place the following files in this folder before submission:
 
-1. **Presentation video** (MP4 preferred) — e.g. `demo/presentation.mp4` — still required
-2. **Slide deck** — e.g. `demo/slides.pdf` (committed) or `demo/presentation.pptx`
+1. **Presentation video** — [`presentation.mp4`](presentation.mp4) (~13 min; compressed from the screen recording for GitHub’s 100MB limit)
+2. **Slide deck** — [`slides.pdf`](slides.pdf) (source: [`slides.html`](slides.html))
 
 ## Video checklist (required order)
 
@@ -19,16 +19,35 @@ Place the following files in this folder before submission:
    - Prometheus: Targets page shows app **UP**
    - Grafana: live panel with application metrics
 
-## PPT checklist (≥8 slides)
+## PPT checklist (≥8 slides — deck has 16)
 
-1. Project overview  
-2. Tech stack  
-3. Architecture diagram  
-4. CI/CD flow  
-5. Infrastructure (Terraform / AWS)  
-6. Kubernetes / Helm setup  
-7. Observability  
-8. Key learnings  
+Source: [`slides.html`](slides.html) → rendered [`slides.pdf`](slides.pdf)
+
+1. Title  
+2. Agenda  
+3. Project overview  
+4. Features & API  
+5. Tech stack  
+6. Architecture  
+7. Repository layout  
+8. CI/CD flow  
+9. DevSecOps / Trivy  
+10. Terraform / AWS  
+11. Kubernetes / Helm  
+12. Argo CD GitOps  
+13. Observability  
+14. Evidence & cost control  
+15. Key learnings  
+16. Demo & submission  
+
+Regenerate PDF after editing HTML:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf="$(pwd)/demo/slides.pdf" \
+  "file://$(pwd)/demo/slides.html"
+``` 
 
 ## Trivy notes (M6 write-up)
 

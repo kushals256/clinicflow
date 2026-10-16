@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ClinicFlow — DevSecOps Capstone</title>
+  <style>
+    @page { size: 1280px 720px; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: #0b1220;
+      color: #e8eef7;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      padding: 48px 64px 40px;
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(900px 420px at 110% -10%, rgba(34, 211, 238, 0.12), transparent 55%),
+        radial-gradient(700px 380px at -10% 110%, rgba(56, 189, 248, 0.08), transparent 50%),
+        linear-gradient(160deg, #0b1220 0%, #111827 55%, #0f172a 100%);
+      display: flex;
+      flex-direction: column;
+    }
+    .slide::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 6px;
+      background: linear-gradient(180deg, #22d3ee, #38bdf8 55%, #0ea5e9);
+    }
+    .slide.title-slide {
+      justify-content: center;
+      padding-left: 80px;
+    }
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #67e8f9;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: 54px;
+      line-height: 1.1;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 650;
+      color: #a5f3fc;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 22px;
+      color: #94a3b8;
+      max-width: 900px;
+      line-height: 1.45;
+    }
+    .meta {
+      margin-top: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .chip {
+      border: 1px solid rgba(103, 232, 249, 0.35);
+      background: rgba(14, 165, 233, 0.12);
+      color: #e0f2fe;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+    .footer {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 22px;
+      flex: 1;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 22px;
+      flex: 1;
+    }
+    .card {
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+    }
+    .card strong { color: #f8fafc; }
+    ul { margin: 0; padding-left: 18px; }
+    li {
+      margin: 7px 0;
+      line-height: 1.4;
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+    .small li, .small p, .small td, .small th { font-size: 14.5px; }
+    .tiny li, .tiny p, .tiny td { font-size: 13.5px; }
+    p { color: #cbd5e1; line-height: 1.45; font-size: 17px; }
+    .lead { font-size: 18px; color: #e2e8f0; margin-top: 10px; max-width: 1050px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      font-size: 15px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      vertical-align: top;
+    }
+    th { color: #67e8f9; font-weight: 650; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+    td { color: #dbeafe; }
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .flow .step {
+      flex: 1;
+      min-width: 140px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .flow .step .n {
+      color: #67e8f9;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .flow .step .t { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+    .flow .step .d { font-size: 12.5px; color: #94a3b8; line-height: 1.35; }
+    .arrow {
+      align-self: center;
+      color: #38bdf8;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .arch {
+      margin-top: 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.35;
+      white-space: pre;
+      background: rgba(2, 6, 23, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 12px;
+      padding: 16px 18px;
+      color: #bae6fd;
+      overflow: hidden;
+    }
+    .two-col-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 28px;
+      margin-top: 16px;
+    }
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .kpi {
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+    .kpi .v { font-size: 28px; font-weight: 750; color: #67e8f9; }
+    .kpi .l { font-size: 12px; color: #94a3b8; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .callout {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-left: 3px solid #22d3ee;
+      background: rgba(34, 211, 238, 0.08);
+      border-radius: 0 10px 10px 0;
+      color: #e0f2fe;
+      font-size: 15px;
+    }
+    .agenda ol {
+      margin-top: 18px;
+      padding-left: 28px;
+      columns: 2;
+      column-gap: 48px;
+    }
+    .agenda li {
+      margin: 10px 0;
+      font-size: 18px;
+      break-inside: avoid;
+    }
+    .agenda li span {
+      color: #67e8f9;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1 TITLE -->
+  <section class="slide title-slide">
+    <div class="eyebrow">DevSecOps Final Capstone · Session 21</div>
+    <h1>ClinicFlow</h1>
+    <p class="subtitle">Clinic appointment platform with a full path from code → CI/CD → secure images → AWS EKS → GitOps → live metrics.</p>
+    <div class="meta">
+      <span class="chip">FastAPI · React · Postgres</span>
+      <span class="chip">GitHub Actions · Trivy · GHCR</span>
+      <span class="chip">Terraform · EKS · Helm · Argo CD</span>
+      <span class="chip">Prometheus · Grafana</span>
+    </div>
+    <div class="footer">
+      <span>github.com/kushals256/clinicflow</span>
+      <span>Original domain · Not TaskBoard</span>
+    </div>
+  </section>
+
+  <!-- 2 AGENDA -->
+  <section class="slide agenda">
+    <div class="eyebrow">Agenda</div>
+    <h2>What we’ll cover</h2>
+    <p class="lead">From product intent through every DevOps module the rubric grades.</p>
+    <ol>
+      <li><span>01</span> Problem & product overview</li>
+      <li><span>02</span> Features & API surface</li>
+      <li><span>03</span> Tech stack</li>
+      <li><span>04</span> End-to-end architecture</li>
+      <li><span>05</span> Repository layout</li>
+      <li><span>06</span> CI/CD pipeline</li>
+      <li><span>07</span> DevSecOps / Trivy</li>
+      <li><span>08</span> Terraform / AWS</li>
+      <li><span>09</span> Kubernetes + Helm</li>
+      <li><span>10</span> Argo CD GitOps</li>
+      <li><span>11</span> Observability</li>
+      <li><span>12</span> Cost control & evidence</li>
+      <li><span>13</span> Key learnings</li>
+      <li><span>14</span> Demo & submission</li>
+    </ol>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>2 / 16</span></div>
+  </section>
+
+  <!-- 3 OVERVIEW -->
+  <section class="slide">
+    <div class="eyebrow">01 · Project overview</div>
+    <h2>Why ClinicFlow?</h2>
+    <p class="lead">Clinics need a simple way to book visits, track priority/status, and operate the same app from a laptop to Kubernetes — with security and observability baked in.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Product goals</h3>
+        <ul>
+          <li>Book and manage patient appointments (CRUD)</li>
+          <li>Track priority (HIGH / MEDIUM / …) and status</li>
+          <li>Stats for a quick operational snapshot</li>
+          <li>Usable React UI + OpenAPI docs</li>
+          <li>Health / ready probes for orchestration</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Capstone goals</h3>
+        <ul>
+          <li>Original domain (not a TaskBoard clone)</li>
+          <li>Prove M1–M10: app → tests → Git → Docker → CI → Trivy → Terraform → K8s → metrics → presentation</li>
+          <li>Immutable SHA-tagged images in GHCR</li>
+          <li>Real AWS VPC + EKS, then destroy for cost</li>
+          <li>Prometheus UP + Grafana live panels</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>3 / 16</span></div>
+  </section>
+
+  <!-- 4 FEATURES -->
+  <section class="slide">
+    <div class="eyebrow">02 · Application</div>
+    <h2>Features & API surface</h2>
+    <div class="kpi-row">
+      <div class="kpi"><div class="v">CRUD</div><div class="l">Appointments</div></div>
+      <div class="kpi"><div class="v">4+</div><div class="l">REST verbs</div></div>
+      <div class="kpi"><div class="v">Alembic</div><div class="l">Migrations</div></div>
+      <div class="kpi"><div class="v">/metrics</div><div class="l">Prometheus</div></div>
+    </div>
+    <table class="small">
+      <thead>
+        <tr><th>Method</th><th>Path</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GET / POST</td><td>/api/appointments</td><td>List & create visits</td></tr>
+        <tr><td>GET / PUT / DELETE</td><td>/api/appointments/{id}</td><td>Read, update, cancel</td></tr>
+        <tr><td>GET</td><td>/api/appointments/stats</td><td>Counts by status / priority</td></tr>
+        <tr><td>GET</td><td>/health · /ready · /metrics</td><td>Liveness, readiness, scrape</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">Local URLs: UI :3000 · Swagger :8000/docs · Compose one-command bring-up.</div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>4 / 16</span></div>
+  </section>
+
+  <!-- 5 TECH STACK -->
+  <section class="slide">
+    <div class="eyebrow">03 · Tech stack</div>
+    <h2>Tools at every layer</h2>
+    <div class="grid-3 tiny">
+      <div class="card">
+        <h3>App</h3>
+        <ul>
+          <li>React + Vite</li>
+          <li>Nginx (non-root)</li>
+          <li>Python 3.12 + FastAPI</li>
+          <li>SQLAlchemy + Alembic</li>
+          <li>PostgreSQL 16</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quality & packages</h3>
+        <ul>
+          <li>Pytest (SQLite test DB)</li>
+          <li>Docker multi-stage builds</li>
+          <li>Docker Compose</li>
+          <li>Non-root containers</li>
+          <li>GitHub public repo</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Delivery & cloud</h3>
+        <ul>
+          <li>GitHub Actions → GHCR</li>
+          <li>Trivy HIGH/CRITICAL gate</li>
+          <li>Terraform VPC + EKS</li>
+          <li>Helm + Ingress + HPA</li>
+          <li>Argo CD · Prom · Grafana</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">Region for infra demo: <strong>ap-south-1 (Mumbai)</strong> · Images: <strong>ghcr.io/kushals256/clinicflow-*</strong></div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>5 / 16</span></div>
+  </section>
+
+  <!-- 6 ARCHITECTURE -->
+  <section class="slide">
+    <div class="eyebrow">04 · Architecture</div>
+    <h2>End-to-end delivery path</h2>
+    <div class="arch">Developer → GitHub → Actions (pytest · build · Trivy · push SHA)
+        → GHCR images
+        → Terraform (VPC + EKS)
+        → Argo CD / Helm → Frontend + Backend → PostgreSQL
+        → /metrics → Prometheus → Grafana</div>
+    <div class="grid-2 small" style="margin-top:16px">
+      <div class="card">
+        <h3>Request path (K8s)</h3>
+        <ul>
+          <li><strong>/</strong> → Ingress → Frontend Service → UI pods</li>
+          <li><strong>/api</strong> → Ingress → Backend Service → API pods</li>
+          <li>Backend → Postgres Service</li>
+          <li>ServiceMonitor / scrape job → Prometheus</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Local path (Compose)</h3>
+        <ul>
+          <li>Browser :3000 → Nginx → proxies /api</li>
+          <li>Backend :8000 → Postgres :5432</li>
+          <li>Optional Prom :9091 · Grafana :3300</li>
+          <li>Same /metrics contract as cluster</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>6 / 16</span></div>
+  </section>
+
+  <!-- 7 REPO -->
+  <section class="slide">
+    <div class="eyebrow">05 · Repository</div>
+    <h2>How the monorepo is organized</h2>
+    <div class="grid-2 tiny">
+      <div class="card">
+        <h3>Application</h3>
+        <ul>
+          <li><strong>frontend/</strong> — React UI + Dockerfile</li>
+          <li><strong>backend/</strong> — FastAPI, Alembic, tests</li>
+          <li><strong>docker-compose.yml</strong> — local stack</li>
+          <li><strong>docker-compose.monitoring.yml</strong> — Prom/Grafana</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Platform</h3>
+        <ul>
+          <li><strong>terraform/</strong> — VPC + EKS modules</li>
+          <li><strong>helm/clinicflow/</strong> — chart + values</li>
+          <li><strong>k8s/</strong> — namespace bootstrap</li>
+          <li><strong>argocd/</strong> — Application CR</li>
+          <li><strong>monitoring/</strong> — values + dashboard</li>
+          <li><strong>.github/workflows/</strong> — CI/CD</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><strong>demo/</strong> holds slides, screenshots (M1–M9 evidence), and the mandatory presentation video.</div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>7 / 16</span></div>
+  </section>
+
+  <!-- 8 CI/CD -->
+  <section class="slide">
+    <div class="eyebrow">06 · CI/CD</div>
+    <h2>GitHub Actions → GHCR</h2>
+    <p class="lead">Workflow <code>.github/workflows/ci-cd.yml</code> · triggers on push/PR to <strong>main</strong>.</p>
+    <div class="flow">
+      <div class="step"><div class="n">Job 1</div><div class="t">Test</div><div class="d">Python 3.12 · pytest<br/>Node 22 · npm build</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">Job 2</div><div class="t">Build</div><div class="d">docker build backend<br/>+ frontend (tag=SHA)</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">Gate</div><div class="t">Trivy</div><div class="d">HIGH/CRITICAL<br/>--exit-code 1</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">Publish</div><div class="t">GHCR</div><div class="d">Push only if scans pass<br/>immutable SHA tags</div></div>
+    </div>
+    <table class="small" style="margin-top:22px">
+      <thead><tr><th>Image</th><th>Tag strategy</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>ghcr.io/kushals256/clinicflow-backend</td><td>&lt;git-sha&gt;</td><td>push to main after green Trivy</td></tr>
+        <tr><td>ghcr.io/kushals256/clinicflow-frontend</td><td>&lt;git-sha&gt;</td><td>push to main after green Trivy</td></tr>
+      </tbody>
+    </table>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>8 / 16</span></div>
+  </section>
+
+  <!-- 9 TRIVY -->
+  <section class="slide">
+    <div class="eyebrow">07 · DevSecOps</div>
+    <h2>Trivy as a hard quality gate</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Policy in CI</h3>
+        <ul>
+          <li>Scan both container images</li>
+          <li><code>--severity HIGH,CRITICAL</code></li>
+          <li><code>--ignore-unfixed</code></li>
+          <li><code>--exit-code 1</code> → fail the job</li>
+          <li>No push to GHCR on findings</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Real remediation example</h3>
+        <ul>
+          <li>First run failed on Starlette 0.41.3</li>
+          <li>CVEs: CVE-2025-62727, CVE-2026-48818, CVE-2026-54283</li>
+          <li>Fix: upgrade FastAPI → 0.143.2</li>
+          <li>Pulls Starlette ≥ 1.3.1</li>
+          <li>Pipeline returned to green</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">Security is a gate before registry publish — not a slideware checkbox.</div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>9 / 16</span></div>
+  </section>
+
+  <!-- 10 TERRAFORM -->
+  <section class="slide">
+    <div class="eyebrow">08 · Infrastructure as Code</div>
+    <h2>Terraform → VPC + EKS</h2>
+    <div class="grid-2 small">
+      <div class="card">
+        <h3>What we provision</h3>
+        <ul>
+          <li>VPC <strong>clinicflow-vpc</strong> · 10.20.0.0/16</li>
+          <li>2 public + 2 private subnets (multi-AZ)</li>
+          <li>Single NAT gateway</li>
+          <li>EKS <strong>clinicflow-eks</strong> · K8s 1.31</li>
+          <li>Managed node group: t3.medium · desired 2</li>
+          <li>Region: <strong>ap-south-1</strong></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Workflow & evidence</h3>
+        <ul>
+          <li><code>terraform init / plan / apply</code></li>
+          <li>AWS Console: VPC + EKS ACTIVE</li>
+          <li><code>aws eks update-kubeconfig</code></li>
+          <li><strong>terraform destroy</strong> after screenshots</li>
+          <li>No AWS keys in Git</li>
+          <li>Screenshots in <code>demo/screenshots/</code></li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">Modules: terraform-aws-modules/vpc + eks — reproducible, destroyable infra.</div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>10 / 16</span></div>
+  </section>
+
+  <!-- 11 K8S -->
+  <section class="slide">
+    <div class="eyebrow">09 · Kubernetes + Helm</div>
+    <h2>Packaging ClinicFlow for the cluster</h2>
+    <div class="grid-3 tiny">
+      <div class="card">
+        <h3>Workloads</h3>
+        <ul>
+          <li>Frontend Deployment (≥2)</li>
+          <li>Backend Deployment (≥2)</li>
+          <li>Demo Postgres</li>
+          <li>ClusterIP Services</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Edge & scale</h3>
+        <ul>
+          <li>Ingress: / → UI</li>
+          <li>Ingress: /api → API</li>
+          <li>NLB / LB in front</li>
+          <li>HPA on CPU (2→6)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Ops</h3>
+        <ul>
+          <li>Namespace: clinicflow</li>
+          <li>values-dev / values-prod</li>
+          <li>SHA image tags from CI</li>
+          <li>ServiceMonitor enabled</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">Verify: <code>kubectl get pods,svc,ingress,hpa -n clinicflow</code> · <code>helm list -n clinicflow</code></div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>11 / 16</span></div>
+  </section>
+
+  <!-- 12 ARGO -->
+  <section class="slide">
+    <div class="eyebrow">10 · GitOps</div>
+    <h2>Argo CD keeps the cluster honest</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Application spec</h3>
+        <ul>
+          <li>Source: github.com/kushals256/clinicflow</li>
+          <li>Path: <code>helm/clinicflow</code></li>
+          <li>Revision: <code>main</code></li>
+          <li>Destination: namespace <code>clinicflow</code></li>
+          <li>Automated sync + prune + selfHeal</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Why it matters</h3>
+        <ul>
+          <li>Git is the source of truth</li>
+          <li>Cluster drifts get healed</li>
+          <li>Image tags updated from CI SHAs</li>
+          <li>UI shows <strong>Synced / Healthy</strong></li>
+          <li>Required clip in the demo video</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">Manifest: <code>argocd/application.yaml</code> · Evidence: <code>demo/screenshots/25-argocd-synced.png</code></div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>12 / 16</span></div>
+  </section>
+
+  <!-- 13 OBSERVABILITY -->
+  <section class="slide">
+    <div class="eyebrow">11 · Observability</div>
+    <h2>Metrics that graders (and ops) can see</h2>
+    <div class="flow" style="margin-top:18px">
+      <div class="step"><div class="n">Emit</div><div class="t">/metrics</div><div class="d">FastAPI counters &amp; latency histograms</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">Scrape</div><div class="t">Prometheus</div><div class="d">ServiceMonitor or static job · target UP</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="n">Visualize</div><div class="t">Grafana</div><div class="d">HTTP req/s + p95 latency panels</div></div>
+    </div>
+    <div class="grid-2 small" style="margin-top:18px">
+      <div class="card">
+        <h3>On EKS</h3>
+        <ul>
+          <li>kube-prometheus-stack Helm chart</li>
+          <li>values in <code>monitoring/</code></li>
+          <li>Dashboard ConfigMap / JSON</li>
+          <li>Port-forward Prom + Grafana</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Local (no AWS burn)</h3>
+        <ul>
+          <li>Compose monitoring overlay</li>
+          <li>Prometheus :9091/targets</li>
+          <li>Grafana :3300 · admin/clinicflow</li>
+          <li>Same metric names &amp; dashboard</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>13 / 16</span></div>
+  </section>
+
+  <!-- 14 EVIDENCE / COST -->
+  <section class="slide">
+    <div class="eyebrow">12 · Evidence & cost control</div>
+    <h2>Prove it, then tear it down</h2>
+    <div class="grid-2 small">
+      <div class="card">
+        <h3>Screenshot pack (demo/screenshots)</h3>
+        <ul>
+          <li>pytest, Compose, non-root users</li>
+          <li>Green Actions + GHCR SHA tags</li>
+          <li>Trivy log · terraform plan/apply/destroy</li>
+          <li>Console VPC + EKS ACTIVE</li>
+          <li>kubectl / helm / ingress / Argo</li>
+          <li>Prometheus UP · Grafana panels</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Cost discipline</h3>
+        <ul>
+          <li>EKS + NAT cost adds up fast</li>
+          <li>Capture Console + kubectl evidence</li>
+          <li>Run <strong>terraform destroy</strong> same day</li>
+          <li>Document destroy completion</li>
+          <li>Keep Prom/Grafana demo local afterward</li>
+          <li>Rotate any exposed IAM keys</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">Rubric: runaway AWS bills are the student’s responsibility — destroy is part of the grade story.</div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>14 / 16</span></div>
+  </section>
+
+  <!-- 15 LEARNINGS -->
+  <section class="slide">
+    <div class="eyebrow">13 · Key learnings</div>
+    <h2>What this project taught</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Engineering</h3>
+        <ul>
+          <li>Fail closed on tests before images exist</li>
+          <li>Trivy turns CVEs into concrete upgrades</li>
+          <li>SHA tags beat floating <code>latest</code></li>
+          <li>Helm + values keep env differences explicit</li>
+          <li>ServiceMonitor ties apps to Prometheus cleanly</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Operations & craft</h3>
+        <ul>
+          <li>IaC must be destroyable, not just creatable</li>
+          <li>GitOps reduces “snowflake cluster” drift</li>
+          <li>Metrics need traffic — generate load to demo</li>
+          <li>Original domain + shared DevOps patterns</li>
+          <li>Evidence screenshots matter as much as code</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer"><span>ClinicFlow Capstone</span><span>15 / 16</span></div>
+  </section>
+
+  <!-- 16 CLOSE -->
+  <section class="slide title-slide">
+    <div class="eyebrow">14 · Next</div>
+    <h2>Demo walkthrough & submission</h2>
+    <p class="subtitle" style="margin-top:12px">Live next: codebase → CI push → Terraform/AWS evidence → Argo Synced → kubectl/Helm → Prometheus UP → Grafana panels.</p>
+    <div class="grid-2" style="margin-top:28px; max-width:980px">
+      <div class="card">
+        <h3>Repo & docs</h3>
+        <ul>
+          <li>github.com/kushals256/clinicflow</li>
+          <li>README — full technical docs</li>
+          <li>GRADING.md · SUBMISSION.md</li>
+          <li>demo/slides.pdf · demo/screenshots/</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Submit</h3>
+        <ul>
+          <li>Form: forms.gle/XWAP1vAumDJgAPM1A</li>
+          <li>Deadline: Sun 19 Oct 2026, 11:59 PM IST</li>
+          <li>Video MP4 in <code>demo/</code> (mandatory)</li>
+          <li>Public repo link in the form</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer">
+      <span>Thank you — questions welcome</span>
+      <span>ClinicFlow · Kushal Sacharya</span>
+    </div>
+  </section>
+
+</body>
+</html>

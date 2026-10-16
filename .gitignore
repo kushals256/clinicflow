@@ -64,3 +64,8 @@ kubeconfig*
 # Large media (upload video via Git LFS or GitHub Release if >100MB)
 # Uncomment if you store huge local renders outside demo/:
 # *.mov
+
+# Local screen recordings (use demo/presentation.mp4)
+demo/Screen Recording*.mov
+*.mov
+!demo/presentation.mp4

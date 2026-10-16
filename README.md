@@ -238,6 +238,17 @@ kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 3001:80
 
 Generate traffic, then confirm Prometheus target **UP** and a populated Grafana panel.
 
+### Local stack (no cluster / no AWS)
+
+For grading screenshots without EKS:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.monitoring.yml up -d
+```
+
+- Prometheus: http://localhost:9091/targets — `clinicflow-backend` should be **UP**
+- Grafana: http://localhost:3300 — login `admin` / `clinicflow` (or anonymous Viewer) → **ClinicFlow Application** dashboard
+
 ## Troubleshooting lab
 
 ```bash

@@ -22,11 +22,13 @@ Evidence for grading modules M1–M9 (plus destroy for M7 cost control).
 | `17-kubectl-nodes.png` | M8 | Ready nodes |
 | `18-kubectl-clinicflow.png` | M8 | pods/svc/ingress/hpa |
 | `19-helm-list.png` | M8 | Helm releases |
-| `20-monitoring-pods.png` | M9 | Prometheus/Grafana pods |
+| `20-monitoring-pods.png` | M9 | Prometheus/Grafana pods (EKS, pre-destroy) |
 | `21-ingress.png` | M8 | Ingress + NLB |
 | `22-metrics-endpoint.png` | M9 | In-cluster `/metrics` |
-| `23-prometheus-targets.png` | M9 | App target UP |
-| `24-grafana-dashboard.png` | M9 | Grafana + ClinicFlow dashboard |
+| `23-prometheus-targets.png` | M9 | Prometheus Targets: `clinicflow-backend` **UP** (local stack) |
+| `24-grafana-dashboard.png` | M9 | Grafana ClinicFlow panels with live series (local stack) |
 | `25-argocd-synced.png` | M10/video | Argo CD Synced |
+
+**M9 UI evidence (23–24):** captured from local Docker Compose monitoring (`docker-compose.monitoring.yml` — Prometheus `:9091`, Grafana `:3300`) scraping the same ClinicFlow `/metrics` surface. No AWS required for these two shots.
 
 See also [`COST-CONTROL.md`](COST-CONTROL.md). AWS ClinicFlow stack was destroyed after evidence capture.

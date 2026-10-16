@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: clinicflow
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    # Replace with your public GitHub repository URL.
+    repoURL: https://github.com/kushals256/clinicflow.git
+    targetRevision: main
+    path: helm/clinicflow
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+      parameters:
+        - name: backend.image
+          value: ghcr.io/kushals256/clinicflow-backend
+        - name: frontend.image
+          value: ghcr.io/kushals256/clinicflow-frontend
+        # Set these to the Git commit SHA published by CI.
+        - name: backend.tag
+          value: latest
+        - name: frontend.tag
+          value: latest
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: clinicflow
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

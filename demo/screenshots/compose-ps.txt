@@ -1,0 +1,4 @@
+NAME                          IMAGE                       COMMAND                  SERVICE    CREATED         STATUS                   PORTS
+devsecops-python-backend-1    devsecops-python-backend    "sh -c 'alembic upgr…"   backend    2 minutes ago   Up 2 minutes             0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+devsecops-python-frontend-1   devsecops-python-frontend   "/docker-entrypoint.…"   frontend   2 minutes ago   Up About a minute        0.0.0.0:3000->8080/tcp, [::]:3000->8080/tcp
+devsecops-python-postgres-1   postgres:16-alpine          "docker-entrypoint.s…"   postgres   2 minutes ago   Up 2 minutes (healthy)   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp

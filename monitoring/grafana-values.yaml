@@ -1,0 +1,33 @@
+# Standalone Grafana values (used when Grafana is enabled separately),
+# or merge into kube-prometheus-stack with grafana.enabled=true.
+#
+# Example with kube-prometheus-stack:
+# helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheus-stack \
+#   -n monitoring --create-namespace \
+#   -f monitoring/prometheus-values.yaml \
+#   -f monitoring/grafana-values.yaml
+
+grafana:
+  enabled: true
+  adminPassword: clinicflow
+  service:
+    type: ClusterIP
+  persistence:
+    enabled: false
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: clinicflow
+          orgId: 1
+          folder: ClinicFlow
+          type: file
+          disableDeletion: false
+          options:
+            path: /var/lib/grafana/dashboards/clinicflow
+  dashboardsConfigMaps:
+    clinicflow: clinicflow-grafana-dashboard
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard

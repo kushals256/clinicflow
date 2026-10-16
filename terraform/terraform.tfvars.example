@@ -1,0 +1,9 @@
+# Copy to terraform.tfvars (gitignored) and adjust values.
+# NEVER commit real AWS credentials. Use AWS CLI profiles or environment variables:
+#   export AWS_ACCESS_KEY_ID=...
+#   export AWS_SECRET_ACCESS_KEY=...
+#   export AWS_DEFAULT_REGION=ap-south-1
+
+aws_region   = "ap-south-1"
+cluster_name = "clinicflow-eks"
+environment  = "dev"

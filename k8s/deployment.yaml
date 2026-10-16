@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clinicflow-backend
+  namespace: clinicflow
+  labels:
+    app: clinicflow-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clinicflow-backend
+  template:
+    metadata:
+      labels:
+        app: clinicflow-backend
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/kushals256/clinicflow-backend:__IMAGE_TAG__
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              value: "sqlite:///./clinicflow.db"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clinicflow-frontend
+  namespace: clinicflow
+  labels:
+    app: clinicflow-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clinicflow-frontend
+  template:
+    metadata:
+      labels:
+        app: clinicflow-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/kushals256/clinicflow-frontend:__IMAGE_TAG__
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5

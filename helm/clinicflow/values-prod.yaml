@@ -1,0 +1,9 @@
+ingress:
+  enabled: true
+  host: clinicflow.example.com
+replicaCount: 2
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  targetCPUUtilizationPercentage: 60

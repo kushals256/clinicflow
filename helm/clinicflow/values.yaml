@@ -1,0 +1,32 @@
+frontend:
+  image: ghcr.io/kushals256/clinicflow-frontend
+  tag: latest
+backend:
+  image: ghcr.io/kushals256/clinicflow-backend
+  tag: latest
+replicaCount: 2
+namespace: clinicflow
+imagePullSecrets: []
+postgres:
+  host: clinicflow-postgres
+  database: clinicflow
+  username: clinicflow
+  password: clinicflow
+ingress:
+  enabled: false
+  host: clinicflow.local
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 60
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+monitoring:
+  serviceMonitor:
+    enabled: true

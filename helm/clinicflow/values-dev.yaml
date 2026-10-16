@@ -1,0 +1,7 @@
+ingress:
+  enabled: true
+  host: clinicflow.local
+backend:
+  tag: latest
+frontend:
+  tag: latest

@@ -27,3 +27,9 @@ Captured for username **kushals256** / ClinicFlow.
 | Grafana live panel | After monitoring install |
 | Argo CD Synced | After Argo CD install |
 | Commit history (≥10 commits) | After you push history |
+
+| `09-github-commits.png` | M3 — ≥10 meaningful commits |
+| `10-actions-green.png` / `10-actions-run-browser.png` | M5 — green Actions |
+| `11-ghcr-sha-tags.png` | M5 — GHCR SHA tags |
+
+Green run: https://github.com/kushals256/clinicflow/actions/runs/38879222308
